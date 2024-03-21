@@ -44,14 +44,14 @@ int _printf(const char *format, ...)
 
 	while (format && format[i])
 	{
-		if (format[i] == "%" && format[i + 1] != '\0')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			count += handle_format(format[i + 1], args);
 			i++;
 		}
-		else if (format[i] == "%" && format[i + 1] == '\0')
+		else if (format[i] == '%' && format[i + 1] == '\0')
 		{
-			_putchar("%");
+			_putchar('%');
 			count++;
 			break;
 		}
