@@ -1,7 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
-
 /**
  *_printf - produces output according to a format
  *@format: character string composed of zero or more directives
@@ -10,18 +9,30 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0;
+	int i, count;
 	va_list args;
 
-	va_start(args, format);
+	if (format == NULL)
+	{
+		return (-1);
+	}
 
-	while (format != NULL && format[i] != '\0')
+	i = 0;
+	count = 0;
+	va_start(args, format);
+	
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			i++;
-
-			if (format[i] == 'c')
+			if (format[i] == '\0')
+			{
+				_putchar('%');
+				count++;
+				break;
+			}
+			else if (format[i] == 'c')
 				count += print_char(args);
 			else if (format[i] == 's')
 				count += print_string(args);
@@ -43,7 +54,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-
 	va_end(args);
 	return (count);
 }
