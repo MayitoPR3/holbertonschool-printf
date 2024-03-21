@@ -31,4 +31,8 @@ used gcc -Wall -Werror -Wextra -pedantic *.c to compile
 the "main.h" header file is included on repo
 
 
+--------------------------------------------------------------------------------------------------------
 
+AUTHORS:
+
+JOSE MAYO & JOEL CABAN
